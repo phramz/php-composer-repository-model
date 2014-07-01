@@ -1,7 +1,7 @@
 php-composer-repository-model
 =============================
 
-[![Build Status](https://travis-ci.org/phramz/php-composer-repository-model.svg?branch=master)](https://travis-ci.org/phramz/php-composer-repository-model)
+[![Build Status](https://travis-ci.org/phramz/php-composer-repository-model.svg?branch=master)](https://travis-ci.org/phramz/php-composer-repository-model) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/caf86077-e815-4fef-bb4f-db5a6953a285/mini.png)](https://insight.sensiolabs.com/projects/caf86077-e815-4fef-bb4f-db5a6953a285)
 
 composer repository (aka `packages.json`) model builder component
 
