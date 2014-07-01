@@ -1,49 +1,27 @@
-php-composer-repository-model
-=============================
+<?php
+/**
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is furnished
+ * to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+namespace Phramz\Component\ComposerRepositoryModel\Example;
 
-composer repository (aka `packages.json`) model builder component
+require __DIR__ . '/../../bootstrap.php';
 
-With this library you'll be able to
-- retrieve a `packages.json` from any repository (e.g. [Packagist](packagist.org) or a private [Satis](https://github.com/composer/satis)) reachable via HTTP
-- serialize or deserialize the json-data
-- build up an object-oriented model
-- browse through the model, including referenced files like `includes` and `providers`
-
-*This library is early alpha so keep in mind that anything may change in future releases!*
-
-## Requirements
-
-- PHP 5.3.3 or higher
-
-## Installation
-
-The best way to install is using [Composer](https://getcomposer.org):
-
-- either edit your `composer.json` any add an requirement
-
-``` json
-"require": {
-    "phramz/composer-repository-model": "dev-master"
-}
-```
-
-- or let composer do that for you
-
-```
-php composer.phar require phramz/php-bitcoin-api
-```
-
-## License
-
-This library is licensed under the MIT license. For further information see LICENSE file.
-
-## Configuration
-
-There's no configuration at all, just use it.
-
-## Usage
-
-```php
 use Guzzle\Http\Client;
 use Phramz\Component\ComposerRepositoryModel\Helper\Serializer\SerializerFactory;
 use Phramz\Component\ComposerRepositoryModel\Service\RepositoryService;
@@ -78,8 +56,3 @@ echo $service
     ->getUrl();
 
 // ... will output `https://github.com/phramz/doctrine-annotation-scanner.git`
-```
-
-## Known issues
-
-- None, so far ...

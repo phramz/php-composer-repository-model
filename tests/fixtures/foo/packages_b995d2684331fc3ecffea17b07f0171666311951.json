@@ -1,0 +1,66 @@
+{
+    "packages": {
+        "vendor/package_foo": {
+            "v4.0-stable": {
+                "name": "vendor/package_foo",
+                "version": "v4.0-stable",
+                "version_normalized": "4.0.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://example.com/vendor/package_foo.git",
+                    "reference": "43bca164cde8f5a98e054e1aea53406aa3b805cc"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "http://example.com/dist/vendor-package_foo-43bca164cde8f5a98e054e1aea53406aa3b805cc-zip-78640c.zip",
+                    "reference": "43bca164cde8f5a98e054e1aea53406aa3b805cc",
+                    "shasum": "56a8de2da3caac4b95c578c33968deb1a23f84b7"
+                },
+                "require": {
+                    "php": ">=5.2.4"
+                },
+                "time": "2013-08-29 14:08:57",
+                "type": "library",
+                "autoload": {
+                    "psr-0": {
+                        "package_foo": "lib/"
+                    }
+                },
+                "notification-url": "http://example.com/downloads/",
+                "description": "test",
+                "homepage": "http://example.com",
+                "keywords": [ "test", "package_foo"]
+            },
+            "v4.0-beta": {
+                "name": "vendor/package_foo",
+                "version": "v4.0-beta",
+                "version_normalized": "4.0.0.0",
+                "source": {
+                    "type": "git",
+                    "url": "https://example.com/vendor/package_foo.git",
+                    "reference": "43bca164cde8f5a98e054e1aea53406aa3b805cc"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "http://example.com/dist/vendor-package_foo-43bca164cde8f5a98e054e1aea53406aa3b805cc-zip-78640c.zip",
+                    "reference": "43bca164cde8f5a98e054e1aea53406aa3b805cc",
+                    "shasum": "56a8de2da3caac4b95c578c33968deb1a23f84b7"
+                },
+                "require": {
+                    "php": ">=5.2.4"
+                },
+                "time": "2013-08-29 14:08:57",
+                "type": "library",
+                "autoload": {
+                    "psr-0": {
+                        "package_foo": "lib/"
+                    }
+                },
+                "notification-url": "http://example.com/downloads/",
+                "description": "test",
+                "homepage": "http://example.com",
+                "keywords": [ "test", "package_foo"]
+            }
+        }
+    }
+}
