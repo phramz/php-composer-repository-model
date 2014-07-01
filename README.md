@@ -1,6 +1,8 @@
 php-composer-repository-model
 =============================
 
+[![Build Status](https://travis-ci.org/phramz/php-composer-repository-model.svg?branch=master)](https://travis-ci.org/phramz/php-composer-repository-model)
+
 composer repository (aka `packages.json`) model builder component
 
 With this library you'll be able to
