@@ -30,7 +30,7 @@ The best way to install is using [Composer](https://getcomposer.org):
 - or let composer do that for you
 
 ```
-php composer.phar require phramz/php-bitcoin-api
+php composer.phar require phramz/composer-repository-model
 ```
 
 ## License
