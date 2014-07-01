@@ -20,19 +20,12 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
-
 /**
  * Interface ReferenceInterface
  * @package Phramz\Component\ComposerRepositoryModel\Model
  */
-interface ReferenceInterface extends HierarchyInterface
+interface ReferenceInterface extends HierarchyInterface, RepositoryInterface
 {
-    /**
-     * @param VisitorInterface $visitor
-     */
-    public function accept(VisitorInterface $visitor);
-
     /**
      * @return string
      */
