@@ -29,7 +29,7 @@ use Phramz\Component\ComposerRepositoryModel\Service\RepositoryServiceInterface;
  * @package Phramz\Component\ComposerRepositoryModel\Model
  * @Serialisation\ExclusionPolicy("all")
  */
-class Reference implements ReferenceInterface, RepositoryInterface
+class Reference implements ReferenceInterface
 {
     /**
      * @Serialisation\Type("string")
