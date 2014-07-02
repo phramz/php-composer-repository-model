@@ -6,7 +6,7 @@ php-composer-repository-model
 composer repository (aka `packages.json`) model builder component
 
 With this library you'll be able to
-- retrieve a `packages.json` from any repository (e.g. [Packagist](packagist.org) or a private [Satis](https://github.com/composer/satis)) reachable via HTTP
+- retrieve a `packages.json` from any repository (e.g. [Packagist](https://packagist.org) or a private [Satis](https://github.com/composer/satis)) reachable via HTTP
 - serialize or deserialize the json-data
 - build up an object-oriented model
 - browse through the model, including referenced files like `includes` and `providers`
