@@ -32,6 +32,7 @@ interface PackageCollectionInterface extends Collection, Selectable
 {
     /**
      * @param VisitorInterface $visitor
+     * @return void
      */
     public function accept(VisitorInterface $visitor);
 }

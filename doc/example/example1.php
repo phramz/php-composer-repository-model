@@ -22,8 +22,6 @@ namespace Phramz\Component\ComposerRepositoryModel\Example;
 
 require __DIR__ . '/../../bootstrap.php';
 
-use Guzzle\Http\Client;
-use Phramz\Component\ComposerRepositoryModel\Helper\Serializer\SerializerFactory;
 use Phramz\Component\ComposerRepositoryModel\Service\RepositoryService;
 
 // create an instance of the RepositoryService

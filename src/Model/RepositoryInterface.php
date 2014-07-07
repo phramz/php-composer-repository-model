@@ -70,6 +70,7 @@ interface RepositoryInterface extends HierarchyInterface
 
     /**
      * @param VisitorInterface $visitor
+     * @return void
      */
     public function accept(VisitorInterface $visitor);
 }
