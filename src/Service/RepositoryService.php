@@ -20,8 +20,10 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Service;
 
+use Guzzle\Http\Client;
 use Guzzle\Http\ClientInterface;
 use JMS\Serializer\SerializerInterface;
+use Phramz\Component\ComposerRepositoryModel\Helper\Serializer\SerializerFactory;
 use Phramz\Component\ComposerRepositoryModel\Model\HierarchyInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\RepositoryInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\Reference;
@@ -52,10 +54,10 @@ class RepositoryService implements RepositoryServiceInterface, LoggerAwareInterf
      */
     protected $serializer;
 
-    public function __construct(ClientInterface $client, SerializerInterface $serializer)
+    public function __construct(ClientInterface $client = null, SerializerInterface $serializer = null)
     {
-        $this->client = $client;
-        $this->serializer = $serializer;
+        $this->client = $client ? $client : new Client();
+        $this->serializer = $serializer ? $serializer : SerializerFactory::create();
 
         $this->logger = new NullLogger();
     }

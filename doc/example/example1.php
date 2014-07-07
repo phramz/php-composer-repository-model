@@ -27,7 +27,7 @@ use Phramz\Component\ComposerRepositoryModel\Helper\Serializer\SerializerFactory
 use Phramz\Component\ComposerRepositoryModel\Service\RepositoryService;
 
 // create an instance of the RepositoryService
-$service = new RepositoryService(new Client(), SerializerFactory::create());
+$service = new RepositoryService();
 
 // fetch and parse the `packages.json` from `https://packagist.org`
 echo $service

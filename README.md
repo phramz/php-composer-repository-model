@@ -46,12 +46,10 @@ There's no configuration at all, just use it.
 ## Usage
 
 ```php
-use Guzzle\Http\Client;
-use Phramz\Component\ComposerRepositoryModel\Helper\Serializer\SerializerFactory;
 use Phramz\Component\ComposerRepositoryModel\Service\RepositoryService;
 
 // create an instance of the RepositoryService
-$service = new RepositoryService(new Client(), SerializerFactory::create());
+$service = new RepositoryService();
 
 // fetch and parse the `packages.json` from `https://packagist.org`
 echo $service
@@ -85,3 +83,10 @@ echo $service
 ## Known issues
 
 - None, so far ...
+
+
+## Contributions
+
+Pull-Requests are always welcome! If you're going to contribute please make sure that:
+- your PR passes the travis-build
+- your coding-style is PSR-2 compliant

@@ -71,7 +71,7 @@ class RepositoryServiceTest extends AbstractTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->service = new RepositoryService($this->clientMock, $this->serializer);
+        $this->service = new RepositoryService($this->clientMock);
     }
 
     public function testBuildModel()
