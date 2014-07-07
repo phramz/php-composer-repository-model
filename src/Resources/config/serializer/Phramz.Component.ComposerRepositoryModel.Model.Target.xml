@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Phramz\Component\ComposerRepositoryModel\Model\Target" exclusion-policy="ALL">
+        <property name="type" expose="true" serialized-name="type">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="url" expose="true" serialized-name="url">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="reference" expose="true" serialized-name="reference">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="shasum" expose="true" serialized-name="shasum">
+            <type><![CDATA[string]]></type>
+        </property>
+    </class>
+</serializer>

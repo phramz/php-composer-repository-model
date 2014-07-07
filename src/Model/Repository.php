@@ -20,71 +20,51 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use JMS\Serializer\Annotation as Serialisation;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
 /**
  * Class Repository
  * @package Phramz\Component\ComposerRepositoryModel\Model
- * @Serialisation\ExclusionPolicy("all")
  */
 class Repository implements RepositoryInterface
 {
     /**
-     * @Serialisation\Type(
-     *   "PackageCollection<string, VersionCollection<string, Phramz\Component\ComposerRepositoryModel\Model\Version>>"
-     * )
-     * @Serialisation\SerializedName("packages")
-     * @Serialisation\Expose
+     * @var PackageCollectionInterface
      */
     protected $packages;
 
     /**
-     * @Serialisation\Type("Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection")
-     * @Serialisation\SerializedName("includes")
-     * @Serialisation\Expose
+     * @var ReferenceCollectionInterface
      */
     protected $includes;
 
     /**
-     * @Serialisation\Type("Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection")
-     * @Serialisation\SerializedName("provider-includes")
-     * @Serialisation\Expose
+     * @var ReferenceCollectionInterface
      */
     protected $providerIncludes;
 
     /**
-     * @Serialisation\Type("Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection")
-     * @Serialisation\SerializedName("providers")
-     * @Serialisation\Expose
+     * @var ReferenceCollectionInterface
      */
     protected $providers;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("providers-url")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $providersUrl;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("notify")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $notify;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("notify-batch")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $notifyBatch;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("search")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $search;
 

@@ -20,7 +20,6 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use JMS\Serializer\Annotation as Serialisation;
 use JMS\Serializer\Context;
 use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\Metadata\ClassMetadata;
@@ -59,17 +58,11 @@ class Version implements VersionInterface
      */
     protected $raw;
 
-    /**
-     * @Serialisation\HandlerCallback("json", direction = "serialization")
-     */
     public function serializeToJson()
     {
         return $this->raw;
     }
 
-    /**
-     * @Serialisation\HandlerCallback("json", direction = "deserialization")
-     */
     public function deserializeFromJson(JsonDeserializationVisitor $visitor, $data, Context $context)
     {
         $class = get_class($this);

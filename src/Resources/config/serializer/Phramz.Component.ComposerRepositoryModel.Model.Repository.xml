@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Phramz\Component\ComposerRepositoryModel\Model\Repository" exclusion-policy="ALL">
+        <property name="packages" expose="true" serialized-name="packages">
+            <type><![CDATA[PackageCollection<string, VersionCollection<string, Phramz\Component\ComposerRepositoryModel\Model\Version>>]]></type>
+        </property>
+        <property name="includes" expose="true" serialized-name="includes">
+            <type><![CDATA[Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection]]></type>
+        </property>
+        <property name="providerIncludes" expose="true" serialized-name="provider-includes">
+            <type><![CDATA[Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection]]></type>
+        </property>
+        <property name="providers" expose="true" serialized-name="providers">
+            <type><![CDATA[Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollection]]></type>
+        </property>
+        <property name="providersUrl" expose="true" serialized-name="providers-url">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="notify" expose="true" serialized-name="notify">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="notifyBatch" expose="true" serialized-name="notify-batch">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="search" expose="true" serialized-name="search">
+            <type><![CDATA[string]]></type>
+        </property>
+    </class>
+</serializer>

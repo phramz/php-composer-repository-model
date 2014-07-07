@@ -20,41 +20,31 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use JMS\Serializer\Annotation as Serialisation;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
 /**
  * Class Target
  * @package Phramz\Component\ComposerRepositoryModel\Model
- * @Serialisation\ExclusionPolicy("all")
  */
 class Target implements TargetInterface
 {
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("type")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $type;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("url")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $url;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("reference")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $reference;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("shasum")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $shasum;
 

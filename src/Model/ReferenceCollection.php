@@ -22,9 +22,6 @@ namespace Phramz\Component\ComposerRepositoryModel\Model;
 
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 use JMS\Serializer\Annotation as Serialisation;
-use JMS\Serializer\Context;
-use JMS\Serializer\JsonDeserializationVisitor;
-use JMS\Serializer\JsonSerializationVisitor;
 
 /**
  * Class ReferenceCollection
@@ -43,22 +40,6 @@ class ReferenceCollection extends AbstractReferenceCollection implements Referen
         foreach ($this as $reference) {
             $reference->accept($visitor);
         }
-    }
-
-    /**
-     * @Serialisation\HandlerCallback("json", direction = "serialization")
-     */
-    public function serializeToJson(JsonSerializationVisitor $visitor, $data, Context $context)
-    {
-        return parent::serializeToJson($visitor, $data, $context);
-    }
-
-    /**
-     * @Serialisation\HandlerCallback("json", direction = "deserialization")
-     */
-    public function deserializeFromJson(JsonDeserializationVisitor $visitor, $data, Context $context)
-    {
-        parent::deserializeFromJson($visitor, $data, $context);
     }
 
     /**

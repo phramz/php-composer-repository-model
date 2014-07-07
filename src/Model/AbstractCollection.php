@@ -18,28 +18,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-namespace Phramz\Component\ComposerRepositoryModel\Helper\Serializer;
+namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use JMS\Serializer\Handler\HandlerRegistryInterface;
-use JMS\Serializer\SerializerBuilder;
-use JMS\Serializer\SerializerInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Class SerializerFactory
- * @package Phramz\Component\ComposerRepositoryModel\Helper\Serializer
+ * Class AbstractCollection
+ * @package Phramz\Component\ComposerRepositoryModel\Model
  */
-class SerializerFactory
+abstract class AbstractCollection extends ArrayCollection
 {
-    /**
-     * @return SerializerInterface
-     */
-    public static function create()
-    {
-        return SerializerBuilder::create()
-            ->configureHandlers(function (HandlerRegistryInterface $registry) {
-                $registry->registerSubscribingHandler(new CollectionHandler());
-            })
-            ->addMetadataDir(__DIR__ . '/../../Resources/config/serializer/')
-            ->build();
-    }
+
 }

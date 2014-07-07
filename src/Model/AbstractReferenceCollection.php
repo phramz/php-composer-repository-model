@@ -24,13 +24,12 @@ use JMS\Serializer\Context;
 use JMS\Serializer\JsonDeserializationVisitor;
 use JMS\Serializer\JsonSerializationVisitor;
 use JMS\Serializer\Metadata\ClassMetadata;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class AbstractReferenceCollection
  * @package Phramz\Component\ComposerRepositoryModel\Model
  */
-abstract class AbstractReferenceCollection extends ArrayCollection
+abstract class AbstractReferenceCollection extends AbstractCollection
 {
     public function serializeToJson(JsonSerializationVisitor $visitor, $data, Context $context)
     {

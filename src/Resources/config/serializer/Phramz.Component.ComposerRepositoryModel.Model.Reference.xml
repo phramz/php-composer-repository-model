@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Phramz\Component\ComposerRepositoryModel\Model\Reference" exclusion-policy="ALL">
+        <property name="sha1" expose="true" serialized-name="sha1">
+            <type><![CDATA[string]]></type>
+        </property>
+        <property name="sha256" expose="true" serialized-name="sha256">
+            <type><![CDATA[string]]></type>
+        </property>
+    </class>
+</serializer>

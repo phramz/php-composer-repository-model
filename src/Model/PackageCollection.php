@@ -20,14 +20,13 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
 /**
  * Class PackageCollection
  * @package Phramz\Component\ComposerRepositoryModel\Model
  */
-class PackageCollection extends ArrayCollection implements PackageCollectionInterface
+class PackageCollection extends AbstractCollection implements PackageCollectionInterface
 {
     /**
      * @param VisitorInterface $visitor

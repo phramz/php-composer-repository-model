@@ -20,28 +20,22 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
-use JMS\Serializer\Annotation as Serialisation;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 use Phramz\Component\ComposerRepositoryModel\Service\RepositoryServiceInterface;
 
 /**
  * Class Reference
  * @package Phramz\Component\ComposerRepositoryModel\Model
- * @Serialisation\ExclusionPolicy("all")
  */
 class Reference implements ReferenceInterface
 {
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("sha1")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $sha1;
 
     /**
-     * @Serialisation\Type("string")
-     * @Serialisation\SerializedName("sha256")
-     * @Serialisation\Expose
+     * @var string
      */
     protected $sha256;
 
