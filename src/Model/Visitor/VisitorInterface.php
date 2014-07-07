@@ -36,42 +36,50 @@ interface VisitorInterface
 {
     /**
      * @param VersionCollectionInterface $collection
+     * @return void
      */
     public function visitVersionCollection(VersionCollectionInterface $collection);
 
     /**
      * @param PackageCollectionInterface $collection
+     * @return void
      */
     public function visitPackageCollection(PackageCollectionInterface $collection);
 
     /**
      * @param ReferenceCollectionInterface $collection
+     * @return void
      */
     public function visitReferenceCollection(ReferenceCollectionInterface $collection);
 
     /**
      * @param RepositoryInterface $index
+     * @return void
      */
     public function visitRepository(RepositoryInterface $index);
 
     /**
      * @param TargetInterface $repository
+     * @return void
      */
     public function visitTarget(TargetInterface $repository);
 
     /**
      * @param VersionInterface $version
+     * @return void
      */
     public function visitVersion(VersionInterface $version);
 
     /**
      * @param ReferenceInterface $version
+     * @return void
      */
     public function visitReference(ReferenceInterface $version);
 
     /**
      * @param string $property
      * @param mixed $data
+     * @return void
      */
     public function startVisiting($property, $data);
 

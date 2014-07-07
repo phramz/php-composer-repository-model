@@ -38,6 +38,7 @@ interface ReferenceInterface extends HierarchyInterface, RepositoryInterface
 
     /**
      * @param string $name
+     * @return void
      */
     public function setName($name);
 
@@ -48,6 +49,7 @@ interface ReferenceInterface extends HierarchyInterface, RepositoryInterface
 
     /**
      * @param string $baseUrl
+     * @return void
      */
     public function setBaseUrl($baseUrl);
 
@@ -58,6 +60,7 @@ interface ReferenceInterface extends HierarchyInterface, RepositoryInterface
 
     /**
      * @param string $filename
+     * @return void
      */
     public function setFilename($filename);
 

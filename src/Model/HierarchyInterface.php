@@ -28,6 +28,7 @@ interface HierarchyInterface
 {
     /**
      * @param HierarchyInterface $parent
+     * @return void
      */
     public function setParent(HierarchyInterface $parent);
 

@@ -50,6 +50,7 @@ interface TargetInterface
 
     /**
      * @param VisitorInterface $visitor
+     * @return void
      */
     public function accept(VisitorInterface $visitor);
 }
