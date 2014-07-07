@@ -52,7 +52,7 @@ interface VisitorInterface
     /**
      * @param RepositoryInterface $index
      */
-    public function visitIndex(RepositoryInterface $index);
+    public function visitRepository(RepositoryInterface $index);
 
     /**
      * @param TargetInterface $repository

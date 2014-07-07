@@ -80,7 +80,7 @@ abstract class AbstractVisitor implements VisitorInterface, LoggerAwareInterface
     /**
      * {@inheritdoc}
      */
-    public function visitIndex(RepositoryInterface $index)
+    public function visitRepository(RepositoryInterface $index)
     {
 
     }

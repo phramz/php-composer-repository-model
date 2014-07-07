@@ -78,7 +78,7 @@ class Repository implements RepositoryInterface
      */
     public function accept(VisitorInterface $visitor)
     {
-        $visitor->visitIndex($this);
+        $visitor->visitRepository($this);
 
         if (null !== $this->getPackages()) {
             $this->getPackages()->accept($visitor);

@@ -21,7 +21,6 @@
 namespace Phramz\Component\ComposerRepositoryModel\Event;
 
 use Doctrine\Common\Collections\Collection;
-use Phramz\Component\ComposerRepositoryModel\Model\AbstractCollection;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
 /**

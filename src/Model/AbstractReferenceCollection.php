@@ -31,6 +31,13 @@ use JMS\Serializer\Metadata\ClassMetadata;
  */
 abstract class AbstractReferenceCollection extends AbstractCollection
 {
+    /**
+     * @param JsonSerializationVisitor $visitor
+     * @param $data
+     * @param Context $context
+     * @return array
+     * @SuppressWarnings("unused")
+     */
     public function serializeToJson(JsonSerializationVisitor $visitor, $data, Context $context)
     {
         $data = array();
@@ -43,6 +50,11 @@ abstract class AbstractReferenceCollection extends AbstractCollection
         return $data;
     }
 
+    /**
+     * @param JsonDeserializationVisitor $visitor
+     * @param $data
+     * @param Context $context
+     */
     public function deserializeFromJson(JsonDeserializationVisitor $visitor, $data, Context $context)
     {
         $class = get_class($this);

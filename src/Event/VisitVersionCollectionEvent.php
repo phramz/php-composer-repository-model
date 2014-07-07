@@ -27,7 +27,7 @@ use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
  * Class VisitVersionCollectionEvent
  * @package Phramz\Component\ComposerRepositoryModel\Event
  */
-class VisitVersionCollectionEvent extends AbstractVisitEvent
+class VisitVersionCollectionEvent extends AbstractVisitCollectionEvent
 {
     const BEFORE = 'phramz.composer_repository_model.visit_before.version_collection';
     const VISIT = 'phramz.composer_repository_model.visit.version_collection';

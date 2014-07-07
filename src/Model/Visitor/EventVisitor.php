@@ -21,13 +21,6 @@
 namespace Phramz\Component\ComposerRepositoryModel\Model\Visitor;
 
 use Phramz\Component\ComposerRepositoryModel\Event\AbstractVisitEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitRepositoryEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitPackageCollectionEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitReferenceCollectionEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitReferenceEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitTargetEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitVersionCollectionEvent;
-use Phramz\Component\ComposerRepositoryModel\Event\VisitVersionEvent;
 use Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollectionInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\RepositoryInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\PackageCollectionInterface;
@@ -69,19 +62,11 @@ class EventVisitor extends AbstractVisitor
     }
 
     /**
-     * @param VersionCollectionInterface $collection
+     * {@inheritdoc}
      */
     public function visitVersionCollection(VersionCollectionInterface $collection)
     {
-        $property = '[versions]';
-        $this->startVisiting($property, $collection);
-
-        $this->eventDispatcher->dispatch(
-            VisitVersionCollectionEvent::VISIT,
-            new VisitVersionCollectionEvent($this, $collection)
-        );
-
-        $this->endVisiting($property, $collection);
+        $this->visit('[versions]', $collection);
     }
 
     /**
@@ -89,76 +74,39 @@ class EventVisitor extends AbstractVisitor
      */
     public function visitReferenceCollection(ReferenceCollectionInterface $collection)
     {
-        $property = '[references]';
-        $this->startVisiting($property, $collection);
-
-        $this->eventDispatcher->dispatch(
-            VisitReferenceCollectionEvent::VISIT,
-            new VisitReferenceCollectionEvent($this, $collection)
-        );
-
-        $this->endVisiting($property, $collection);
+        $this->visit('[references]', $collection);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function visitPackageCollection(PackageCollectionInterface $collection)
     {
-        $property = '[packages]';
-        $this->startVisiting($property, $collection);
-
-        $this->eventDispatcher->dispatch(
-            VisitPackageCollectionEvent::VISIT,
-            new VisitPackageCollectionEvent($this, $collection)
-        );
-
-        $this->endVisiting($property, $collection);
+        $this->visit('[packages]', $collection);
     }
 
     /**
-     * @param RepositoryInterface $index
+     * {@inheritdoc}
      */
-    public function visitIndex(RepositoryInterface $index)
+    public function visitRepository(RepositoryInterface $repository)
     {
-        $property = '[root]';
-        $this->startVisiting($property, $index);
-
-        $this->eventDispatcher->dispatch(
-            VisitRepositoryEvent::VISIT,
-            new VisitRepositoryEvent($this, $index)
-        );
-
-        $this->endVisiting($property, $index);
+        $this->visit('[root]', $repository);
     }
 
     /**
-     * @param TargetInterface $repository
+     * {@inheritdoc}
      */
     public function visitTarget(TargetInterface $repository)
     {
-        $property = '[repository:"'.$repository->getUrl().'"]';
-        $this->startVisiting($property, $repository);
-
-        $this->eventDispatcher->dispatch(
-            VisitTargetEvent::VISIT,
-            new VisitTargetEvent($this, $repository)
-        );
-
-        $this->endVisiting($property, $repository);
+        $this->visit('[repository:"'.$repository->getUrl().'"]', $repository);
     }
 
     /**
-     * @param VersionInterface $version
+     * {@inheritdoc}
      */
     public function visitVersion(VersionInterface $version)
     {
-        $property = '[version:"'.$version->getName().'"]';
-        $this->startVisiting($property, $version);
-
-        $this->eventDispatcher->dispatch(
-            VisitVersionEvent::VISIT,
-            new VisitVersionEvent($this, $version)
-        );
-
-        $this->endVisiting($property, $version);
+        $this->visit('[version:"'.$version->getName().'"]', $version);
     }
 
     /**
@@ -166,15 +114,7 @@ class EventVisitor extends AbstractVisitor
      */
     public function visitReference(ReferenceInterface $reference)
     {
-        $property = '[reference:"'.$reference->getName().'"]';
-        $this->startVisiting($property, $reference);
-
-        $this->eventDispatcher->dispatch(
-            VisitReferenceEvent::VISIT,
-            new VisitReferenceEvent($this, $reference)
-        );
-
-        $this->endVisiting($property, $reference);
+        $this->visit('[reference:"'.$reference->getName().'"]', $reference);
     }
 
     /**
@@ -216,10 +156,10 @@ class EventVisitor extends AbstractVisitor
 
     /**
      * @param VisitorInterface $visitor
-     * @param $data
+     * @param mixed $data
      * @return Event|null
      */
-    protected function newEvent(VisitorInterface $visitor, $data)
+    private function newEvent(VisitorInterface $visitor, $data)
     {
         foreach ($this->eventMap as $typeClass => $eventClass) {
             $fqcnType = "{$this->nsModel}\\{$typeClass}";
@@ -231,5 +171,26 @@ class EventVisitor extends AbstractVisitor
         }
 
         return null;
+    }
+
+    /**
+     * @param string $property
+     * @param mixed $data
+     */
+    private function visit($property, $data)
+    {
+        $this->startVisiting($property, $data);
+
+        $event = $this->newEvent($this, $data);
+        if ($event instanceof Event) {
+            $name = get_class($event) . '::VISIT';
+
+            $this->eventDispatcher->dispatch(
+                defined($name) ? constant($name) : AbstractVisitEvent::VISIT,
+                $event
+            );
+        }
+
+        $this->endVisiting($property, $data);
     }
 }

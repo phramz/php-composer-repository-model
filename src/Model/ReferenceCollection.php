@@ -21,7 +21,6 @@
 namespace Phramz\Component\ComposerRepositoryModel\Model;
 
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
-use JMS\Serializer\Annotation as Serialisation;
 
 /**
  * Class ReferenceCollection
