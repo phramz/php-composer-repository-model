@@ -20,6 +20,7 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Model\Visitor;
 
+use Phramz\Component\ComposerRepositoryModel\Event\AbstractVisitEvent;
 use Phramz\Component\ComposerRepositoryModel\Event\VisitRepositoryEvent;
 use Phramz\Component\ComposerRepositoryModel\Event\VisitPackageCollectionEvent;
 use Phramz\Component\ComposerRepositoryModel\Event\VisitReferenceCollectionEvent;
@@ -184,7 +185,14 @@ class EventVisitor extends AbstractVisitor
         parent::startVisiting($property, $data);
 
         $event = $this->newEvent($this, $data);
-        $this->eventDispatcher->dispatch($event::BEFORE, $event);
+        if ($event instanceof Event) {
+            $name = get_class($event) . '::BEFORE';
+
+            $this->eventDispatcher->dispatch(
+                defined($name) ? constant($name) : AbstractVisitEvent::BEFORE,
+                $event
+            );
+        }
     }
 
     /**
@@ -193,7 +201,15 @@ class EventVisitor extends AbstractVisitor
     public function endVisiting($property, $data)
     {
         $event = $this->newEvent($this, $data);
-        $this->eventDispatcher->dispatch($event::AFTER, $event);
+
+        if ($event instanceof Event) {
+            $name = get_class($event) . '::AFTER';
+
+            $this->eventDispatcher->dispatch(
+                defined($name) ? constant($name) : AbstractVisitEvent::AFTER,
+                $event
+            );
+        }
 
         return parent::endVisiting($property, $data);
     }

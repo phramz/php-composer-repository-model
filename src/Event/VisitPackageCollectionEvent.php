@@ -27,29 +27,14 @@ use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
  * Class VisitPackageCollectionEvent
  * @package Phramz\Component\ComposerRepositoryModel\Event
  */
-class VisitPackageCollectionEvent extends AbstractVisitEvent
+class VisitPackageCollectionEvent extends AbstractVisitCollectionEvent
 {
     const BEFORE = 'phramz.composer_repository_model.visit_before.package_collection';
     const VISIT = 'phramz.composer_repository_model.visit.package_collection';
     const AFTER = 'phramz.composer_repository_model.visit_after.package_collection';
 
-    /**
-     * @var PackageCollectionInterface
-     */
-    protected $collection;
-
     public function __construct(VisitorInterface $visitor, PackageCollectionInterface $collection)
     {
-        parent::__construct($visitor);
-
-        $this->collection = $collection;
-    }
-
-    /**
-     * @return PackageCollectionInterface
-     */
-    public function getCollection()
-    {
-        return $this->collection;
+        parent::__construct($visitor, $collection);
     }
 }

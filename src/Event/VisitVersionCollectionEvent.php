@@ -20,7 +20,6 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Event;
 
-use Phramz\Component\ComposerRepositoryModel\Model\PackageCollectionInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\VersionCollectionInterface;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
@@ -34,23 +33,8 @@ class VisitVersionCollectionEvent extends AbstractVisitEvent
     const VISIT = 'phramz.composer_repository_model.visit.version_collection';
     const AFTER = 'phramz.composer_repository_model.visit_after.version_collection';
 
-    /**
-     * @var VersionCollectionInterface
-     */
-    protected $collection;
-
     public function __construct(VisitorInterface $visitor, VersionCollectionInterface $collection)
     {
-        parent::__construct($visitor);
-
-        $this->collection = $collection;
-    }
-
-    /**
-     * @return PackageCollectionInterface
-     */
-    public function getCollection()
-    {
-        return $this->collection;
+        parent::__construct($visitor, $collection);
     }
 }

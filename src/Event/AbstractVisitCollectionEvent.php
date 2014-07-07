@@ -20,21 +20,33 @@
  */
 namespace Phramz\Component\ComposerRepositoryModel\Event;
 
-use Phramz\Component\ComposerRepositoryModel\Model\ReferenceCollectionInterface;
+use Doctrine\Common\Collections\Collection;
+use Phramz\Component\ComposerRepositoryModel\Model\AbstractCollection;
 use Phramz\Component\ComposerRepositoryModel\Model\Visitor\VisitorInterface;
 
 /**
- * Class VisitReferenceCollectionEvent
+ * Class AbstractVisitCollectionEvent
  * @package Phramz\Component\ComposerRepositoryModel\Event
  */
-class VisitReferenceCollectionEvent extends AbstractVisitEvent
+abstract class AbstractVisitCollectionEvent extends AbstractVisitEvent
 {
-    const BEFORE = 'phramz.composer_repository_model.visit_before.reference_collection';
-    const VISIT = 'phramz.composer_repository_model.visit.reference_collection';
-    const AFTER = 'phramz.composer_repository_model.visit_after.reference_collection';
+    /**
+     * @var Collection
+     */
+    protected $collection;
 
-    public function __construct(VisitorInterface $visitor, ReferenceCollectionInterface $collection)
+    public function __construct(VisitorInterface $visitor, Collection $collection)
     {
-        parent::__construct($visitor, $collection);
+        parent::__construct($visitor);
+
+        $this->collection = $collection;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCollection()
+    {
+        return $this->collection;
     }
 }

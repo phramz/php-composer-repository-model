@@ -29,6 +29,10 @@ use Symfony\Component\EventDispatcher\Event;
  */
 abstract class AbstractVisitEvent extends Event
 {
+    const BEFORE = 'phramz.composer_repository_model.visit_before';
+    const VISIT = 'phramz.composer_repository_model.visit';
+    const AFTER = 'phramz.composer_repository_model.visit_after';
+
     /**
      * @var VisitorInterface
      */
