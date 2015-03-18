@@ -61,7 +61,7 @@ echo $service
     // [packages.json][provider-includes]
     ->getProviderIncludes()
     // [packages.json][provider-includes][p/provider-archived$%hash%.json]
-    ->get('p/provider-archived$%hash%.json')
+    ->get('p/provider-2013$%hash%.json')
     // [packages.json][provider-includes][p/provider-archived$0123456789.json][providers]
     ->getProviders()
     // [packages.json][provider-includes][...][providers][p/phramz/doctrine-annotation-scanner$0123456789.json]
